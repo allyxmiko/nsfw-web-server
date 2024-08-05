@@ -3,7 +3,7 @@ WORKDIR /app
 COPY ./nsfw_ui/package.json ./nsfw_ui/package-lock.json .
 RUN npm ci --no-optional --no-audit --silent
 COPY ./nsfw_ui/ .
-RUN npm run build
+RUN npm run docs:build
 
 
 # 使用Python官方基础镜像
