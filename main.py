@@ -19,7 +19,7 @@ from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-app.mount("/assets", StaticFiles(directory="./dist/assets"), name="assets")
+app.mount("/assets", StaticFiles(directory="./ui/assets"), name="assets")
 
 temp_dir = os.path.join(tempfile.gettempdir(), "nsfw")
 if not os.path.exists(temp_dir):
@@ -28,7 +28,7 @@ if not os.path.exists(temp_dir):
 
 @app.get("/")
 async def index():
-    return FileResponse("./dist/index.html")
+    return FileResponse("./ui/index.html")
 
 @app.post("/nsfw")
 async def create_task(images: List[UploadFile], precent: bool = Form(default=True), precision: int = Form(default=0)):
