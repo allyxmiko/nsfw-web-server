@@ -15,4 +15,4 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 
 # 指定启动命令
-CMD ["python", "main.py"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
