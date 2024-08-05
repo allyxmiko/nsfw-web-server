@@ -16,8 +16,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 将项目文件复制到容器中
-COPY --exclude="nsfw_ui" . .
+COPY . .
+RUN rm -rf ./nsfw_ui
 COPY --from=ui-builder /app/dist .
+
+
 # 设置环境变量
 ENV PYTHONUNBUFFERED=1
 
