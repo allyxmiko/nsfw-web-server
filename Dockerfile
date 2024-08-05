@@ -1,4 +1,4 @@
-FROM node:lts-alpine AS uibuiler
+FROM node:lts-alpine AS ui-builder
 WORKDIR /app
 COPY ./nsfw_ui .
 RUN npm install
