@@ -22,7 +22,10 @@ jobs:
         with:
           # 选择要使用的 node 版本
           node-version: 20
-
+      
+      - name: Npm Install
+        run: npm ci
+      
       # 运行构建脚本
       - name: Build VuePress site
         run: cd nsfw_ui && npm run docs:build
